@@ -28,7 +28,7 @@ Deploy Karpenter for automatic provisioning of nodes.
 ### **Configure kubectl**
 Once the cluster is deployed, update your kubeconfig:
 ```sh
-aws eks update-kubeconfig --region us-west-2 --name K8s-Opsfleet
+aws eks kubeconfig --region us-west-x --name K8s-Opsfleet
 ```
 ### **Test the connection:**
 ```sh
