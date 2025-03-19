@@ -1,0 +1,1 @@
+# outputs.tf is intentionally left empty because environment-specific outputs are defined in the `environments/dev` directory.

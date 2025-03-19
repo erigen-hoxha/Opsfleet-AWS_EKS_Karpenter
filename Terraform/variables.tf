@@ -1,0 +1,1 @@
+# variables.tf file is intentionally left empty because environment-specific variables are defined in the `environments/dev` directory.
