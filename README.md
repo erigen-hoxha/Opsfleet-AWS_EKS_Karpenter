@@ -1,27 +1,5 @@
 # Opsfleet-AWS_EKS_Karpenter
 
-terraform-eks-karpenter/
-├── README.md
-├── main.tf
-├── variables.tf
-├── outputs.tf
-├── providers.tf
-├── modules/
-│   ├── eks/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   ├── outputs.tf
-│   ├── karpenter/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   ├── outputs.tf
-└── environments/
-    ├── dev/
-    │   ├── main.tf
-    │   ├── variables.tf
-    │   ├── outputs.tf
-
-
 # Terraform EKS + Karpenter Setup
 
 This repository contains Terraform configurations for deploying an **Amazon EKS cluster** with **Karpenter** for node auto-scaling.
