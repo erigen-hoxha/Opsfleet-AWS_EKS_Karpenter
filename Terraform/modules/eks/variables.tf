@@ -18,12 +18,12 @@ variable "cluster_version" {
 variable "vpc_id" {
   description = "The ID of the existing VPC where the EKS cluster will be deployed."
   type        = string
-  default     = "vpc-123456789opsfleet"
+  default     = "vpc-0d9fd5936f143990f"
 }
 
 # List of subnet IDs where the EKS cluster will be deployed. Also the subnets must be in different AZs.
 variable "subnet_ids" {
   description = "A list of subnet IDs in which the EKS cluster will be created. Should be spread across multiple availability zones."
   type        = list(string)
-  default     = ["subnet-123456789a", "subnet-123456789b", "subnet-123456789c"]
+  default     = ["subnet-0982c4613817a4b69", "subnet-09f0c2bb80b83dace", "subnet-0105e0659018420b0"]
 }

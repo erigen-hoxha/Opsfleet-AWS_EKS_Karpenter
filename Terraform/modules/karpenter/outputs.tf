@@ -25,8 +25,7 @@ output "karpenter_iam_role_arn" {
   description = "The IAM role ARN assigned to Karpenter"
 }
 
-# Karpenter Provisioner Name
-output "karpenter_provisioner_name" {
-  value = kubectl_manifest.karpenter_provisioner.yaml_body
-  description = "The provisioner manifest used by Karpenter"
+output "karpenter_provisioner" {
+  value = kubectl_manifest.karpenter_provisioner.name
 }
+

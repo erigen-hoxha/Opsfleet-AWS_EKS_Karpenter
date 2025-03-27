@@ -1,0 +1,21 @@
+apiVersion: karpenter.sh/v1alpha5
+kind: Provisioner
+metadata:
+  name: default
+spec:
+  requirements:
+    - key: "kubernetes.io/arch"
+      operator: In
+      values: ["amd64"]
+    - key: "karpenter.k8s.aws/instance-lifecycle"
+      operator: In
+      values: ["on-demand"]
+  provider:
+    instanceTypes:
+      - "t3.large"
+      - "m5.large"
+    subnetSelector:
+      karpenter.sh/discovery: "K8s-Opsfleet"
+    securityGroupSelector:
+      karpenter.sh/discovery: "K8s-Opsfleet"
+

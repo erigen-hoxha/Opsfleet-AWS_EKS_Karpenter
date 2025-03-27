@@ -22,6 +22,10 @@ module "karpenter" {
   # Associating Karpenter with the EKS cluster
   cluster_name           = module.eks.cluster_name
   oidc_provider_arn      = module.eks.oidc_provider_arn
+  oidc_provider_url         = module.eks.oidc_provider_url
+  cluster_endpoint             = module.eks.cluster_endpoint
+  default_instance_profile_name = module.eks.instance_profile_name
+  default_instance_profile    = module.eks.instance_profile_name
 
   # Assigning IAM Role for Karpenter (used to provision worker nodes)
   karpenter_iam_role_arn = module.karpenter.karpenter_iam_role_arn

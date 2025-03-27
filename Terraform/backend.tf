@@ -3,9 +3,9 @@
 
 terraform {
   backend "s3" {
-    bucket         = "Opsfleet-bucket"  # Replace with your S3 bucket name
+    bucket         = "erigen-opsfleet-bucket"
     key            = "terraform/state/dev/terraform.tfstate"
-    region         = "us-west-x"
+    region         = "eu-west-2"
     encrypt        = true
     dynamodb_table = "terraform-locks"  # DynamoDB table for state locking
   }

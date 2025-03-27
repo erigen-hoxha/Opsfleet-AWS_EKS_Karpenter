@@ -1,6 +1,3 @@
-
-# Required providers and their versions (stable versions))
-
 terraform {
   required_providers {
     aws = {
@@ -22,39 +19,35 @@ terraform {
   }
 }
 
-
-# Configure AWS provider
-
 provider "aws" {
   region = "eu-west-2"
 }
 
+# Fetch cluster auth token from AWS IAM
+data "aws_eks_cluster_auth" "cluster" {
+  name = module.eks.cluster_name
+}
 
-# Configure Kubernetes provider
-
+# Kubernetes provider config
 provider "kubernetes" {
-  host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
+  host                   = module.eks.cluster_endpoint
+  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
   token                  = data.aws_eks_cluster_auth.cluster.token
 }
 
-
-# Configure Helm provider
-
+# Helm provider config
 provider "helm" {
   kubernetes {
-    host                   = data.aws_eks_cluster.cluster.endpoint
-    cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
+    host                   = module.eks.cluster_endpoint
+    cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
     token                  = data.aws_eks_cluster_auth.cluster.token
   }
 }
 
-
-# Configure Kubectl provider
-
+# Kubectl provider config
 provider "kubectl" {
-  host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
+  host                   = module.eks.cluster_endpoint
+  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
   token                  = data.aws_eks_cluster_auth.cluster.token
   load_config_file       = false
 }
